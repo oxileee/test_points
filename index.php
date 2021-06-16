@@ -60,7 +60,7 @@ foreach ($response as $points) {
         ];
     }
 
-    ++$numberOfPoints[$points['CountryCode']['number_of_points']];
+    ++$numberOfPoints[$points['CountryCode']]['number_of_points'];
 }
 
 if(!$numberOfPoints) {
@@ -71,7 +71,7 @@ $startMessage = 'Колличество ПВЗ в ';
 $resultMessage = '';
 
 foreach ($numberOfPoints as $countryCode => $countryData) {
-    $resultMessage .= $startMessage . (setFirstLetterToUppercase($countryData['name_country'])) . ': ' . $countryData['number_points'] . '<br>';
+    $resultMessage .= $startMessage . (setFirstLetterToUppercase($countryData['country_name'])) . ': ' . $countryData['number_of_points'] . '<br>';
 }
 
 echo $resultMessage;
